@@ -1,11 +1,10 @@
 using UnityEngine;
 
-public class MoveCamera : MonoBehaviour
-{
-    [SerializeField] private Transform cameraPosition;
-    // Update is called once per frame
-    void Update()
-    {
-        transform.position = cameraPosition.position;
+public class MoveCamera : MonoBehaviour {
+
+    public Transform player;
+
+    void Update() {
+        transform.position = player.transform.position;
     }
 }

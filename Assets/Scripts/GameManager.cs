@@ -10,16 +10,45 @@ public class GameManager : MonoBehaviour
     [Header("Levels")] 
     [SerializeField] private SceneAsset[] levels;
     private int curSceneInd = 0;
+
+    private enum StartColor
+    {
+        Red,
+        Blue,
+        Green,
+        White
+    }
+    [SerializeField] private StartColor startColor;
     public static string curBlockColor;
     
     public static GameManager Instance { get; private set; }
 
     [SerializeField] private GameObject walls;
-    [SerializeField] private Material disabled;
+    [SerializeField] private Material disabledRed;
+    [SerializeField] private Material disabledBlue;
+    [SerializeField] private Material disabledGreen;
+    [SerializeField] private Material disabledWhite;
 
     private void Awake()
     {
-        curBlockColor = CONSTANTS.BLUE;
+        if (startColor == StartColor.Red)
+        {
+            curBlockColor = CONSTANTS.RED;
+        }
+        else if (startColor == StartColor.Blue)
+        {
+            curBlockColor = CONSTANTS.BLUE;
+        }
+        else if (startColor == StartColor.Green)
+        {
+            curBlockColor = CONSTANTS.GREEN;
+        }
+        else
+        {
+            curBlockColor = CONSTANTS.WHITE;
+        }
+        
+        
         if (Instance == null)
         {
             Instance = this;
@@ -63,9 +92,30 @@ public class GameManager : MonoBehaviour
 
     public void SetActiveWalls()
     {
+        ChangeColor();
         for (int i = 0; i < walls.transform.childCount; i++)
         {
             walls.transform.GetChild(i).GetComponent<BlockBehaviour>().SetActiveBlock();
+        }
+    }
+
+    private void ChangeColor()
+    {
+        if (curBlockColor == CONSTANTS.RED)
+        {
+            curBlockColor = CONSTANTS.BLUE;
+        }
+        else if (curBlockColor == CONSTANTS.BLUE)
+        {
+            curBlockColor = CONSTANTS.GREEN;
+        }
+        else if (curBlockColor == CONSTANTS.GREEN)
+        {
+            curBlockColor = CONSTANTS.WHITE;
+        }
+        else if (curBlockColor == CONSTANTS.WHITE)
+        {
+            curBlockColor = CONSTANTS.RED;
         }
     }
 }

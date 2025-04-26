@@ -24,6 +24,8 @@ public class PlayerMovement : MonoBehaviour
 	public float runSpeed = 10f;
 	public bool grounded;
 	public bool onWall;
+	[SerializeField] private float moveForwardSpeed;
+	[SerializeField] private float moveSideSpeed;
 
     //Private Floats
     private float wallRunGravity = 1f;
@@ -202,8 +204,8 @@ public class PlayerMovement : MonoBehaviour
 			forwardSpeedFactor = 0.7f;
 			strafeSpeedFactor = 0.3f;
 		}
-		rb.AddForce(orientation.transform.forward * forwardInput * moveSpeed * Time.deltaTime * forwardSpeedFactor * strafeSpeedFactor);
-		rb.AddForce(orientation.transform.right * sideInput * moveSpeed * Time.deltaTime * forwardSpeedFactor);
+		rb.AddForce(orientation.transform.forward * forwardInput * moveForwardSpeed * Time.deltaTime * forwardSpeedFactor * strafeSpeedFactor * 0.1f, ForceMode.VelocityChange);
+		rb.AddForce(orientation.transform.right * sideInput * moveSideSpeed * 0.1f * Time.deltaTime * forwardSpeedFactor, ForceMode.VelocityChange);
 	}
 
     //Ready to jump again
@@ -218,6 +220,7 @@ public class PlayerMovement : MonoBehaviour
         if ((grounded || wallRunning || surfing) && readyToJump)
 		{
 		    print("jumping");
+		    SwapColor();
 		    Vector3 velocity = rb.linearVelocity;
 		    readyToJump = false;
 		    rb.AddForce(Vector2.up * jumpForce * 1.5f);
@@ -240,6 +243,11 @@ public class PlayerMovement : MonoBehaviour
 			    wallRunning = false;
 		    }
         }
+	}
+
+	private void SwapColor()
+	{
+		GameManager.Instance.SetActiveWalls();
 	}
 
     //Looking around by using your mouse

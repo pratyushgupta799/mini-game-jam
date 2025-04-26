@@ -56,27 +56,4 @@ public class BlockBehaviour : MonoBehaviour
 
         return null;
     }
-
-    private void OnCollisionExit(Collision other)
-    {
-        Debug.Log("Collision exit");
-        if (GameManager.curBlockColor == CONSTANTS.RED)
-        {
-            GameManager.curBlockColor = CONSTANTS.BLUE;
-        }
-        else if (GameManager.curBlockColor == CONSTANTS.BLUE)
-        {
-            GameManager.curBlockColor = CONSTANTS.GREEN;
-        }
-        else if (GameManager.curBlockColor == CONSTANTS.GREEN)
-        {
-            GameManager.curBlockColor = CONSTANTS.WHITE;
-        }
-        else if (GameManager.curBlockColor == CONSTANTS.WHITE)
-        {
-            GameManager.curBlockColor = CONSTANTS.RED;
-        }
-        GameManager.Instance.SetActiveWalls();
-        Debug.Log(GameManager.curBlockColor);
-    }
 }

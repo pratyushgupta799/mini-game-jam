@@ -103,13 +103,13 @@ public class GameManager : MonoBehaviour
     {
         if (curBlockColor == CONSTANTS.RED)
         {
-            curBlockColor = CONSTANTS.BLUE;
-        }
-        else if (curBlockColor == CONSTANTS.BLUE)
-        {
             curBlockColor = CONSTANTS.GREEN;
         }
         else if (curBlockColor == CONSTANTS.GREEN)
+        {
+            curBlockColor = CONSTANTS.BLUE;
+        }
+        else if (curBlockColor == CONSTANTS.BLUE)
         {
             curBlockColor = CONSTANTS.WHITE;
         }

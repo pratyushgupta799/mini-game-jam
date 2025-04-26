@@ -192,10 +192,10 @@ MonoBehaviour:
     m_Value: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 0.563
   response:
     m_OverrideState: 1
-    m_Value: 0.8
+    m_Value: 0.378
   texture:
     m_OverrideState: 1
     m_Value: {fileID: 0}
@@ -407,10 +407,10 @@ MonoBehaviour:
   active: 1
   temperature:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 15.3
   tint:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 3.2
 --- !u!114 &-581120513425526550
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -547,13 +547,13 @@ MonoBehaviour:
   active: 1
   shadows:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 1, z: 1, w: -0.39053255}
+    m_Value: {x: 1, y: 1, z: 1, w: -0.5068116}
   midtones:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 1, z: 1, w: -0.113609895}
+    m_Value: {x: 1, y: 1, z: 1, w: 0.0026691824}
   highlights:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 1, z: 1, w: -0.09704085}
+    m_Value: {x: 1, y: 1, z: 1, w: -0.31506413}
   shadowsStart:
     m_OverrideState: 1
     m_Value: 0
@@ -790,16 +790,16 @@ MonoBehaviour:
   active: 1
   mode:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 1
   gaussianStart:
     m_OverrideState: 1
-    m_Value: 10
+    m_Value: 10.8
   gaussianEnd:
     m_OverrideState: 1
-    m_Value: 30
+    m_Value: 19.7
   gaussianMaxRadius:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 1.5
   highQualitySampling:
     m_OverrideState: 1
     m_Value: 0
@@ -852,7 +852,7 @@ MonoBehaviour:
   active: 1
   intensity:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 0.084
 --- !u!114 &6940869943325143175
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -887,10 +887,10 @@ MonoBehaviour:
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.555
+    m_Value: 0.546
   smoothness:
     m_OverrideState: 1
-    m_Value: 0.386
+    m_Value: 0.523
   rounded:
     m_OverrideState: 1
     m_Value: 1
@@ -909,7 +909,7 @@ MonoBehaviour:
   active: 1
   intensity:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 0.265
   xMultiplier:
     m_OverrideState: 1
     m_Value: 1

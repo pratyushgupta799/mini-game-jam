@@ -1,5 +1,6 @@
 using System.ComponentModel.Design.Serialization;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -9,11 +10,16 @@ public class GameManager : MonoBehaviour
     [Header("Levels")] 
     [SerializeField] private SceneAsset[] levels;
     private int curSceneInd = 0;
+    public static string curBlockColor;
     
     public static GameManager Instance { get; private set; }
 
+    [SerializeField] private GameObject walls;
+    [SerializeField] private Material disabled;
+
     private void Awake()
     {
+        curBlockColor = CONSTANTS.BLUE;
         if (Instance == null)
         {
             Instance = this;
@@ -52,6 +58,14 @@ public class GameManager : MonoBehaviour
         else
         {
             Debug.LogError("Cannot reload level: Invalid current scene index or SceneAsset not assigned.");
+        }
+    }
+
+    public void SetActiveWalls()
+    {
+        for (int i = 0; i < walls.transform.childCount; i++)
+        {
+            walls.transform.GetChild(i).GetComponent<BlockBehaviour>().SetActiveBlock();
         }
     }
 }

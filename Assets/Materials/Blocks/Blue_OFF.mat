@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: disabled
+  m_Name: Blue_OFF
   m_Shader: {fileID: -6465566751694194690, guid: 71575722d17fa4f469b96171945b0939, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0

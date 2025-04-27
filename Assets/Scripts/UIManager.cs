@@ -1,4 +1,7 @@
+using System;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
@@ -17,7 +20,25 @@ public class UIManager : MonoBehaviour
     [SerializeField] public Texture greenOff;
     [SerializeField] public Texture blueOff;
     [SerializeField] public Texture whiteOff;
-    
+
+    [SerializeField] private TextMeshProUGUI levelText;
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        char numberPart = SceneManager.GetActiveScene().name[5];
+        levelText.text = "Level: " + numberPart;
+    }
+
     void Update()
     {
         if (GameManager.curBlockColor == CONSTANTS.RED)

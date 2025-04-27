@@ -28,7 +28,22 @@ public class BlockBehaviour : MonoBehaviour
         if(GameManager.curBlockColor != materialName)
         {
             gameObject.GetComponent<BoxCollider>().enabled = false;
-            gameObject.GetComponent<Renderer>().material = disabledMat;
+            if(material.name == CONSTANTS.RED)
+            {
+                gameObject.GetComponent<Renderer>().material = GameManager.Instance.disabledRed;
+            }
+            else if(material.name == CONSTANTS.BLUE)
+            {
+                gameObject.GetComponent<Renderer>().material = GameManager.Instance.disabledBlue;
+            }
+            else if(material.name == CONSTANTS.GREEN)
+            {
+                gameObject.GetComponent<Renderer>().material = GameManager.Instance.disabledGreen;
+            }
+            else if(material.name == CONSTANTS.WHITE)
+            {
+                gameObject.GetComponent<Renderer>().material = GameManager.Instance.disabledWhite;
+            }
             //gameObject.SetActive(false);
         }
         else

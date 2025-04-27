@@ -24,10 +24,10 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
 
     [SerializeField] private GameObject walls;
-    [SerializeField] private Material disabledRed;
-    [SerializeField] private Material disabledBlue;
-    [SerializeField] private Material disabledGreen;
-    [SerializeField] private Material disabledWhite;
+    public Material disabledRed;
+    public Material disabledBlue;
+    public Material disabledGreen;
+    public Material disabledWhite;
 
     private void Awake()
     {

@@ -3,7 +3,10 @@ using System;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
-{   
+{
+	[SerializeField] private AudioClip jumpSFX;
+	private AudioSource audioSource;
+	
     [Header("Assignables")]
     //Assignables
 	public Transform playerCam;
@@ -75,6 +78,7 @@ public class PlayerMovement : MonoBehaviour
 	{
 		Instance = this;
 		rb = GetComponent<Rigidbody>();
+		audioSource = GetComponent<AudioSource>();
 		//DontDestroyOnLoad(gameObject);
 		//rb.position = new Vector3(0f, 0f, 0f);
 	}
@@ -123,6 +127,10 @@ public class PlayerMovement : MonoBehaviour
 		if (Input.GetKeyUp(KeyCode.LeftShift))
 		{
 			StopCrouch();
+		}
+		if (Input.GetButtonDown("Jump") && readyToJump)
+		{
+			PlayJumpSound();
 		}
 	}
 
@@ -243,6 +251,15 @@ public class PlayerMovement : MonoBehaviour
 			    wallRunning = false;
 		    }
         }
+        
+	}
+
+	private void PlayJumpSound()
+	{
+		if (jumpSFX != null && audioSource != null)
+		{
+			audioSource.PlayOneShot(jumpSFX);
+		}
 	}
 
 	private void SwapColor()

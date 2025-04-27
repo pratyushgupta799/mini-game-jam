@@ -2449,6 +2449,10 @@ PrefabInstance:
       propertyPath: playerCam
       value: 
       objectReference: {fileID: 123664329}
+    - target: {fileID: 5399724440414057524, guid: a2ec87aac3507534a9014c4457cbce3e, type: 3}
+      propertyPath: whatIsGround.m_Bits
+      value: 2048
+      objectReference: {fileID: 0}
     - target: {fileID: 6259868854561746927, guid: a2ec87aac3507534a9014c4457cbce3e, type: 3}
       propertyPath: m_LocalScale.y
       value: 1.4483

@@ -909,6 +909,69 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &833185354
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 833185356}
+  - component: {fileID: 833185355}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &833185355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833185354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a85ee8ff3c8d9a648b42ebffbd9cd995, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levels:
+  - Level1
+  - Level2
+  - Level3
+  - Level4
+  - Level5
+  - Level6
+  - Level7
+  - Level8
+  - Level9
+  - Level10
+  - Level11
+  - Level12
+  - Level13
+  startColor: 3
+  disabledRed: {fileID: 2100000, guid: 24abdc01ef286f04aab17e021787d2c4, type: 2}
+  disabledBlue: {fileID: 2100000, guid: 93367543801192047a2b2f137a162f80, type: 2}
+  disabledGreen: {fileID: 2100000, guid: 7d93d42b73c2cf24ebe00de5cdd945ea, type: 2}
+  disabledWhite: {fileID: 2100000, guid: 0eae9491365d95e46b32ec63e0ec7be0, type: 2}
+--- !u!4 &833185356
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833185354}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &914787581 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 878005751493911721, guid: a2ec87aac3507534a9014c4457cbce3e, type: 3}
@@ -2384,3 +2447,4 @@ SceneRoots:
   - {fileID: 1253963722}
   - {fileID: 1512512625}
   - {fileID: 1406930798}
+  - {fileID: 833185356}

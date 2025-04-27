@@ -208,8 +208,10 @@ public class PlayerMovement : MonoBehaviour
 			forwardSpeedFactor = 0.7f;
 			strafeSpeedFactor = 0.3f;
 		}
-		rb.AddForce(orientation.transform.forward * forwardInput * moveForwardSpeed * Time.deltaTime * forwardSpeedFactor * strafeSpeedFactor * 0.1f, ForceMode.VelocityChange);
-		rb.AddForce(orientation.transform.right * sideInput * moveSideSpeed * 0.1f * Time.deltaTime * forwardSpeedFactor, ForceMode.VelocityChange);
+		
+		
+		rb.AddForce(orientation.transform.forward * forwardInput * moveForwardSpeed * Time.deltaTime * forwardSpeedFactor * 0.1f, ForceMode.VelocityChange);
+		rb.AddForce(orientation.transform.right * sideInput * moveSideSpeed * 0.1f * Time.deltaTime * strafeSpeedFactor, ForceMode.VelocityChange);
 	}
 
     //Ready to jump again
@@ -370,8 +372,17 @@ public class PlayerMovement : MonoBehaviour
 	{
 		if (wallRunning)
 		{
-			rb.AddForce(-wallNormalVector * Time.deltaTime * moveSpeed);
-			//rb.AddForce(Vector3.up * Time.deltaTime * rb.mass * 100f * wallRunGravity);
+			// Check if player is facing the wall
+			float dot = Vector3.Dot(orientation.forward, wallNormalVector);
+
+			if (dot < 0.5f) // Adjust 0.5 based on how strict you want it
+			{
+				// Only push into wall if NOT directly facing it
+				rb.AddForce(-wallNormalVector * Time.deltaTime * moveSpeed);
+			}
+
+			// Optional gravity effect while wallrunning (you had it commented)
+			rb.AddForce(Vector3.up * Time.deltaTime * rb.mass * 100f * wallRunGravity);
 		}
 	}
 

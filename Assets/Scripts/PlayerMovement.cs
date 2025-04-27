@@ -128,10 +128,6 @@ public class PlayerMovement : MonoBehaviour
 		{
 			StopCrouch();
 		}
-		if (Input.GetButtonDown("Jump") && readyToJump)
-		{
-			PlayJumpSound();
-		}
 	}
 
     //Scale player down
@@ -227,6 +223,7 @@ public class PlayerMovement : MonoBehaviour
 	{
         if ((grounded || wallRunning || surfing) && readyToJump)
 		{
+			PlayJumpSound();
 		    print("jumping");
 		    SwapColor();
 		    Vector3 velocity = rb.linearVelocity;

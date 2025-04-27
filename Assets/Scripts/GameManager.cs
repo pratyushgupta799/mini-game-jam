@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [Header("Levels")] 
-    [SerializeField] private SceneAsset[] levels;
+    [SerializeField] private string[] levels;
     private int curSceneInd = 0;
 
     private enum StartColor
@@ -82,14 +82,14 @@ public class GameManager : MonoBehaviour
     {
         if (curSceneInd < levels.Length - 1)
         {
-            Debug.Log($"Loading next level: {levels[curSceneInd + 1].name} (Index: {curSceneInd + 1})");
-            string sceneName = levels[curSceneInd + 1].name;
+            Debug.Log($"Loading next level: {levels[curSceneInd + 1]} (Index: {curSceneInd + 1})");
+            string sceneName = levels[curSceneInd + 1];
             SceneManager.LoadScene(sceneName);
             curSceneInd++;
         }
         else
         {
-            Debug.Log("Game Finished!");
+            SceneManager.LoadScene("Credits");
         }
     }
     
@@ -97,7 +97,7 @@ public class GameManager : MonoBehaviour
     {
         if (curSceneInd >= 0 && curSceneInd < levels.Length && levels[curSceneInd] != null)
         {
-            string sceneName = levels[curSceneInd].name;
+            string sceneName = levels[curSceneInd];
             Debug.Log($"Reloading current level: {sceneName} (Index: {curSceneInd})");
             SceneManager.LoadScene(sceneName);
         }

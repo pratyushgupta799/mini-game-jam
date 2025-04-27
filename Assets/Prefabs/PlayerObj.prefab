@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a512cee063f08da4199ff1a8aed426a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpSFX: {fileID: 0}
   playerCam: {fileID: 0}
   orientation: {fileID: 5218884192551506152}
   rb: {fileID: 168229567241644984}
@@ -170,7 +171,7 @@ MonoBehaviour:
   onWall: 0
   moveForwardSpeed: 2000
   moveSideSpeed: 2000
-  jumpForce: 300
+  jumpForce: 350
 --- !u!1 &3204985354533937454
 GameObject:
   m_ObjectHideFlags: 0

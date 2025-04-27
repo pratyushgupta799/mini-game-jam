@@ -23,12 +23,27 @@ public class GameManager : MonoBehaviour
     
     public static GameManager Instance { get; private set; }
 
-    [SerializeField] private GameObject walls;
+    private GameObject walls;
     public Material disabledRed;
     public Material disabledBlue;
     public Material disabledGreen;
     public Material disabledWhite;
 
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        walls = GameObject.Find("Walls");
+    }
+    
     private void Awake()
     {
         if (startColor == StartColor.Red)
@@ -59,6 +74,8 @@ public class GameManager : MonoBehaviour
             Debug.LogWarning("Duplicate GameManager detected. Destroying");
             Destroy(gameObject);
         }
+        
+        walls = GameObject.Find("Walls");
     }
     
     public void NextLevel()

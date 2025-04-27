@@ -736,7 +736,6 @@ MonoBehaviour:
   - {fileID: 102900000, guid: 4d81974a489e9c348b9541f8f61db28f, type: 3}
   - {fileID: 102900000, guid: a55f229a9cfba71448c2679b86eb936d, type: 3}
   startColor: 3
-  walls: {fileID: 764433449}
   disabledRed: {fileID: 2100000, guid: 24abdc01ef286f04aab17e021787d2c4, type: 2}
   disabledBlue: {fileID: 2100000, guid: 93367543801192047a2b2f137a162f80, type: 2}
   disabledGreen: {fileID: 2100000, guid: 7d93d42b73c2cf24ebe00de5cdd945ea, type: 2}

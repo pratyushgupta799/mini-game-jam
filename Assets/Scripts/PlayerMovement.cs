@@ -71,6 +71,8 @@ public class PlayerMovement : MonoBehaviour
 
 	private bool isJumping = false;
 	private bool canJumpFr = true;
+	private float coyoteTimer;
+	private float coyoteTime = 0.2f;
 	
     //Private int
 	private int nw;
@@ -115,7 +117,7 @@ public class PlayerMovement : MonoBehaviour
         //Looking around
 		Look();
 		PositionCheck();
-		CanJumpFr();
+		UpdateCoyoteTime();
 	}
 
     //Player input
@@ -224,22 +226,17 @@ public class PlayerMovement : MonoBehaviour
 	{
 		readyToJump = true;
 	}
-
-	void CanJumpFr()
+	
+	private void UpdateCoyoteTime()
 	{
-		if (!((grounded || wallRunning || surfing) && readyToJump) && !isJumping)
+		if (grounded || wallRunning)
 		{
-			Invoke("CantJumpAtAll", 2f);
+			coyoteTimer = coyoteTime; // Reset timer if grounded
 		}
 		else
 		{
-			canJumpFr = true;
+			coyoteTimer -= Time.deltaTime; // Count down otherwise
 		}
-	}
-
-	void CantJumpAtAll()
-	{
-		canJumpFr = false;
 	}
 
 	private void OnCollisionEnter(Collision other)
@@ -253,10 +250,11 @@ public class PlayerMovement : MonoBehaviour
 	//Player go fly
 	private void Jump()
 	{
-        if (canJumpFr)
+        if ((coyoteTimer > 0) && !isJumping)
 		{
 			PlayJumpSound();
 		    print("jumping");
+		    isJumping = true;
 		    SwapColor();
 		    Vector3 velocity = rb.linearVelocity;
 		    readyToJump = false;
@@ -280,7 +278,6 @@ public class PlayerMovement : MonoBehaviour
 			    wallRunning = false;
 		    }
 
-		    isJumping = true;
 		}
         
 	}

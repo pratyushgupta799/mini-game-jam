@@ -1,5 +1,6 @@
 // PlayerMovement
 using System;
+using UnityEditor.Searcher;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -68,6 +69,9 @@ public class PlayerMovement : MonoBehaviour
 	private Vector3 wallRunPos;
 	private Vector3 previousLookdir;
 
+	private bool isJumping = false;
+	private bool canJumpFr = true;
+	
     //Private int
 	private int nw;
     
@@ -111,6 +115,7 @@ public class PlayerMovement : MonoBehaviour
         //Looking around
 		Look();
 		PositionCheck();
+		CanJumpFr();
 	}
 
     //Player input
@@ -220,10 +225,35 @@ public class PlayerMovement : MonoBehaviour
 		readyToJump = true;
 	}
 
-    //Player go fly
+	void CanJumpFr()
+	{
+		if (!((grounded || wallRunning || surfing) && readyToJump) && !isJumping)
+		{
+			Invoke("CantJumpAtAll", 2f);
+		}
+		else
+		{
+			canJumpFr = true;
+		}
+	}
+
+	void CantJumpAtAll()
+	{
+		canJumpFr = false;
+	}
+
+	private void OnCollisionEnter(Collision other)
+	{
+		if (isJumping == true)
+		{
+			isJumping = false;
+		}
+	}
+
+	//Player go fly
 	private void Jump()
 	{
-        if ((grounded || wallRunning || surfing) && readyToJump)
+        if (canJumpFr)
 		{
 			PlayJumpSound();
 		    print("jumping");
@@ -249,7 +279,9 @@ public class PlayerMovement : MonoBehaviour
 		    {
 			    wallRunning = false;
 		    }
-        }
+
+		    isJumping = true;
+		}
         
 	}
 

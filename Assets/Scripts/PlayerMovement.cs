@@ -1,6 +1,5 @@
 // PlayerMovement
 using System;
-using UnityEditor.Searcher;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -72,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
 	private bool isJumping = false;
 	private bool canJumpFr = true;
 	private float coyoteTimer;
-	private float coyoteTime = 0.2f;
+	[SerializeField] private float coyoteTime = 0.2f;
 	
     //Private int
 	private int nw;
